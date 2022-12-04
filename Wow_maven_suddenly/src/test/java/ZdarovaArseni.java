@@ -1,4 +1,4 @@
-public class zdarovaArseni {
+public class ZdarovaArseni {
     public static void main(String[] args) {
 
 

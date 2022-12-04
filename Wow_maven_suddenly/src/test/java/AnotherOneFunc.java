@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-public class anotherOneFunc {
+public class AnotherOneFunc {
     @Test
     public  void  test2mark() {
         var mark = getMarkResult(-1);

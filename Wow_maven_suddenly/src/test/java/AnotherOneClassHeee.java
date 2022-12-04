@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-public class anotherOneClassHeee {
+public class AnotherOneClassHeee {
 
 //    Test_ click  button:"Ввод".Write name "Пашок, пыхнем водник?"
 

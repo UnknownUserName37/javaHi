@@ -1,6 +1,8 @@
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -23,5 +25,27 @@ public class OneMoreCinema {
 
     }
 
+    @Test
+    public void enterFilmsAndSerials() {
 
+        var filmTextEnter = "Сила воли";
+        var serialTextEnter = "Flash";
+        var filmFieldInput = driver.findElement(By.name("films"));
+        var serialFieldInput = driver.findElement(By.id("serials"));
+        var saveButton = driver.findElement(By.className("section__button"));
+        var swapPageButton1 = driver.findElement(By.id("one"));
+        var swapPageButton2 = driver.findElement(By.xpath("//input[@id='two']"));
+        var buttonOk = driver.findElement(By.id("ok"));
+        var bestFilmsResText = driver.findElement(By.id("best_films"));
+        var bestSerialsResText = driver.findElement(By.id("best_serials"));
+
+        filmFieldInput.sendKeys(filmTextEnter);
+        serialFieldInput.sendKeys(serialTextEnter);
+        saveButton.click();
+        swapPageButton2.click();
+        saveButton.click();
+        buttonOk.click();
+        Assert.assertEquals("Ошибка сравнения введённого фильма", filmTextEnter, bestFilmsResText.getText());
+        Assert.assertEquals("Ошибка сравнения любимого сериала", serialTextEnter, bestSerialsResText.getText());
+    }
 }
