@@ -19,7 +19,7 @@ public class AnotherOneClassHeee {
         var nullVal = "";
         Assert.assertEquals(nullVal, gatTextVal);
 
-//                driver.quit();
+                driver.quit();
     }
 }
 //    @Test

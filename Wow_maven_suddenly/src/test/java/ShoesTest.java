@@ -32,7 +32,7 @@ public class ShoesTest {
         var size = "30";
         sizeTab.sendKeys(size);
         buttonConfirm.click();
-        var sizeError = driver.findElement(By.xpath("//label[@class='error']"));
+            var sizeError = driver.findElement(By.xpath("//label[@class='error']"));
         var textSizeError = "В нашем магазине нет обуви вашего размера";
         Assert.assertEquals("Неверно введён размер обуви", textSizeError, sizeError.getText());
 
