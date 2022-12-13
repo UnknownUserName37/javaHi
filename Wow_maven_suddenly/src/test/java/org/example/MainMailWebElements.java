@@ -44,7 +44,6 @@ public class MainMailWebElements {
 
     @FindBy(xpath = "//span[contains(text(), 'break-dance')]")
     private WebElement neededMassageWithCodeFromMailBox;
-
     public void goToMessageWithSecretCode() {
         neededMassageWithCodeFromMailBox.click();
     }
