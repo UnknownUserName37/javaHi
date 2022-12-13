@@ -5,10 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MailWebElements {
+public class MainMailWebElements {
 
     public WebDriver driver;
-    public MailWebElements(WebDriver driver) {
+    public MainMailWebElements(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
@@ -21,7 +21,7 @@ public class MailWebElements {
     @FindBy(xpath = "//input[contains(@name, 'username')]")
     private WebElement authEnterMailFields;
     public void enterLoginFields() {
-        authEnterMailFields.sendKeys(loginMailRu);
+        authEnterMailFields.sendKeys(ConfProperties.getProperty("loginMailRu"));
     }
 
     @FindBy(xpath = "//button[contains(@data-test-id, 'next-button')]")
@@ -33,7 +33,7 @@ public class MailWebElements {
     @FindBy(xpath = "//input[@name= 'password']")
     private WebElement passerdEnterFields;
     public void enterMailPassword() {
-        passerdEnterFields.sendKeys(passwrdMailRu);
+        passerdEnterFields.sendKeys(ConfProperties.getProperty("passwrdMailRu"));
     }
 
     @FindBy(xpath = "//span[text()= 'Sign in']")
