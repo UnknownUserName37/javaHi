@@ -9,7 +9,7 @@ public class OneMoreCinema {
 
     public WebDriver driver;
 
-    @Before
+    @Before @Deprecated
     public void setUp() {
 
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Kaban\\IdeaProjects\\Wow_maven_suddenly\\Drivers\\chromedriver.exe");

@@ -5,9 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AuthLoginMailPage {
-    private WebDriver driver;
-    public AuthLoginMailPage(WebDriver driver) {
+public class MailLoginPageAuth {
+
+        public WebDriver driver;
+        public MailLoginPageAuth(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
@@ -44,7 +45,7 @@ public class AuthLoginMailPage {
     }
 
     @FindBy(xpath = "//td[@style= 'padding: 0 30px 30px;']/descendant::b[2]")
-    private WebElement getCodeFromMailRuMassage;
+    public WebElement getCodeFromMailRuMassage;
     public String getSecretCodeFromMessage() {
         return getCodeFromMailRuMassage.getText();
     }

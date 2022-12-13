@@ -12,7 +12,7 @@ public class ConfProperties {
 
     static {
         try {
-            fileInputStream = new FileInputStream("C:\\Users\\Kaban\\IdeaProjects\\Wow_maven_suddenly\\src\\test\\java\\resources");
+            fileInputStream = new FileInputStream("C:\\Users\\Kaban\\IdeaProjects\\Wow_maven_suddenly\\src\\test\\java\\resources\\conf.properties");
             PROPERTIES = new Properties();
             PROPERTIES.load(fileInputStream);
         } catch (IOException e) {

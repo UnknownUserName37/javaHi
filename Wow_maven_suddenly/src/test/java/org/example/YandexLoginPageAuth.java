@@ -5,13 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.Properties;
-
-public class AuthLoginYandexPage {
+public class YandexLoginPageAuth {
 
     public WebDriver driver;
-
-    public AuthLoginYandexPage(WebDriver driver) {
+    public YandexLoginPageAuth(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
@@ -40,4 +37,9 @@ public class AuthLoginYandexPage {
         signInYandexButton.click();
     }
 
+    @FindBy(xpath = "//span[@class='zen-ui-button-text__text']")
+    private WebElement accessLoginEnterButton;
+    public void accessLoginEnterButton() {
+        accessLoginEnterButton.click();
+    }
 }
