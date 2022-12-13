@@ -24,27 +24,4 @@ public class MainYandexWebElements {
         enterInYandexAuthFieldsButton.click();
     }
 
-    @FindBy(xpath = "//a[@class = 'CurrentAccount']")
-    private WebElement selectorYandexAddNewAccount;
-    public void selectNewAccOnYaRu() {
-        selectorYandexAddNewAccount.click();
-    }
-
-    @FindBy(xpath = "//span[@class = 'AddAccountButton-text']")
-    private WebElement newYandexAccountButton;
-    public void addNewYaAccount() {
-        newYandexAccountButton.click();
-    }
-
-    @FindBy(xpath = "//input[@id = 'passp-field-login']")
-    private WebElement loginYandexFieldEnter;
-    public void enterLogin() {
-        loginYandexFieldEnter.sendKeys(ConfProperties.getProperty("loginMailRu"));
-    }
-
-    @FindBy(xpath = "//div[contains(@class, 'sign-in-button')]")
-    private WebElement signInYandexButton;
-    public void signInYaButton() {
-        signInYandexButton.click();
-    }
 }

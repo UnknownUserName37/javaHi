@@ -3,16 +3,11 @@ package org.example;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.Properties;
-
-public class AuthLoginPage {
-
-    public WebDriver driver;
-
-    public AuthLoginPage(WebDriver driver) {
+public class YandexProfilePage {
+    private WebDriver driver;
+    public YandexProfilePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-
 
 }
