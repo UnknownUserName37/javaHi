@@ -1,5 +1,3 @@
-package org.example;
-
 public class ExampleClassForUseConfig {
 
     public static void main(String[] args) {
