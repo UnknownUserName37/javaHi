@@ -13,11 +13,10 @@ public class MailLoginPageAuth {
         this.driver = driver;
     }
 
-
-    @FindBy(xpath = "//input[contains(@name, 'username')]")
+        @FindBy(xpath = "//div[@id='login-content']/descendant::input[contains(@name, 'username')]")
     private WebElement authEnterMailFields;
     public void enterLoginFields() {
-        authEnterMailFields.sendKeys(ConfProperties.getProperty("loginMailRu"));
+        authEnterMailFields.sendKeys(ConfProperties.getProperty("mailRuPage"));
     }
 
     @FindBy(xpath = "//button[contains(@data-test-id, 'next-button')]")
@@ -45,8 +44,10 @@ public class MailLoginPageAuth {
     }
 
     @FindBy(xpath = "//td[@style= 'padding: 0 30px 30px;']/descendant::b[2]")
-    public WebElement getCodeFromMailRuMassage;
+    private WebElement getCodeFromMailRuMassage;
     public String getSecretCodeFromMessage() {
         return getCodeFromMailRuMassage.getText();
     }
+//    public String secretCode = getCodeFromMailRuMassage.getText();
+
 }

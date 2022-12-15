@@ -1,3 +1,5 @@
+package test.pack;
+
 public class ZdarovaArseni {
     public static void main(String[] args) {
 

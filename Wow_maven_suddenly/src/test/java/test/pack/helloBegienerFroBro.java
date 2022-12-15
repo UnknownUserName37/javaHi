@@ -1,3 +1,5 @@
+package test.pack;
+
 public class helloBegienerFroBro {
 
     public static void main(String[] args) {

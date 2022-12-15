@@ -18,10 +18,16 @@ public class YandexMainPage {
     }
 
     //Yandex_ru Locator
-    @FindBy(xpath = "//a[contains(@class, 'home-link2_color_black')]")
+    @FindBy(xpath = "//span[@class='zen-ui-button-text__text']")
+    private WebElement accessLoginEnterButton;
+    public void accessLoginEnterButton() {
+        accessLoginEnterButton.click();
+    }
+
+   /* @FindBy(xpath = "//a[contains(@class, 'home-link2_color_black')]")
     private WebElement enterInYandexAuthFieldsButton; // = driver.findElement(By.xpath("//a[contains(@class, 'home-link2_color_black')]"));
     public void clickToGoOnYaAuthFields() {
-        enterInYandexAuthFieldsButton.click();
-    }
+        enterInYandexAuthFieldsButton.click(); ЭТО ДЛЯ YA.RU. НЕ YANDEX.RU
+    }*/
 
 }

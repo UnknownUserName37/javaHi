@@ -1,8 +1,10 @@
 package org.example;
+import org.checkerframework.checker.units.qual.K;
 import org.junit.*;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class RubExmpl {
@@ -15,6 +17,7 @@ public class RubExmpl {
     public static MailPageMain mailPageMain;
     public static YandexMainPage yandexMainPage;
     public static WebDriver driver;
+    public static ArrayList<String> tabs2;
 
     @BeforeClass @Deprecated
     public static void setUp() {
@@ -28,26 +31,39 @@ public class RubExmpl {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to(ConfProperties.getProperty("loginPage"));
+
+        JavascriptExecutor jscript = (JavascriptExecutor) driver;
+        jscript.executeScript("window.open('https://mail.ru');");
+
+        tabs2 = new ArrayList<String> (driver.getWindowHandles());
+
     }
 
-    @AfterClass
-    public static void tearsDown() {
-        driver.quit();
-    }
 
-    @Test
+
+    @Test @Deprecated
     public void authYaRu() {
-        yandexMainPage.clickToGoOnYaAuthFields();
+        yandexMainPage.accessLoginEnterButton();
         yandexLoginPageAuth.enterLogin();
         yandexLoginPageAuth.signInYaButton();
+
+        driver.switchTo().window(tabs2.get(1));
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         mailPageMain.goToMailAuthFieldsButton();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         mailLoginPageAuth.enterLoginFields();
         mailLoginPageAuth.clickToNavigatePasswordEnterFields();
         mailLoginPageAuth.enterMailPassword();
         mailLoginPageAuth.clickSignInMailRu();
         mailLoginPageAuth.goToMessageWithSecretCode();
         mailLoginPageAuth.getSecretCodeFromMessage();
+        driver.switchTo().window(tabs2.get(0));
 
+    }
+
+    @AfterClass
+    public static void tearsDown() {
+        // driver.quit();
     }
 
 }

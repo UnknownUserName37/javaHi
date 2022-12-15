@@ -37,9 +37,5 @@ public class YandexLoginPageAuth {
         signInYandexButton.click();
     }
 
-    @FindBy(xpath = "//span[@class='zen-ui-button-text__text']")
-    private WebElement accessLoginEnterButton;
-    public void accessLoginEnterButton() {
-        accessLoginEnterButton.click();
-    }
+
 }

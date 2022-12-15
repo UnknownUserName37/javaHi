@@ -1,3 +1,5 @@
+package test.pack;
+
 import com.sun.source.tree.AssertTree;
 import org.junit.Assert;
 import org.junit.Test;

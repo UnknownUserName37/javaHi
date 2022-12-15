@@ -1,3 +1,5 @@
+package test.pack;
+
 import com.google.j2objc.annotations.Weak;
 import org.junit.After;
 import org.junit.Before;
