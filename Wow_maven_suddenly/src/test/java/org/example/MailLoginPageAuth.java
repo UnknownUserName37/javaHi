@@ -12,11 +12,34 @@ public class MailLoginPageAuth {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
+//Title
+//    @FindBy(xpath = "//h3[contains(@data-test-id, 'header-text')]")
+//    public WebElement getFrameTitle;
+//    public void getFrameTitleText() {
+//        String soutTitle = getFrameTitle.getText();
+//        System.out.println(soutTitle);
+//    }
 
-        @FindBy(xpath = "//div[@id='login-content']/descendant::input[contains(@name, 'username')]")
+    @FindBy(xpath = "//div[@id='login-content']")
+    public WebElement getFrameTitle;
+    public WebElement getFrameTitleText(WebElement soutTitle) {
+        soutTitle = getFrameTitle;
+        System.out.println(soutTitle);
+        getFrameTitle = soutTitle;
+        return soutTitle;
+    }
+
+    //SupposedFrame
+    @FindBy(xpath = "//iframe[@class='iframe-0-2-16']")
+    public WebElement modPop;
+    public void swithToThisCqweqwsdfsddsgf(WebElement modPop) {
+        this.modPop = modPop;
+    }
+
+    @FindBy(xpath = "//input[contains(@name, 'username')]")
     private WebElement authEnterMailFields;
     public void enterLoginFields() {
-        authEnterMailFields.sendKeys(ConfProperties.getProperty("mailRuPage"));
+        authEnterMailFields.sendKeys(ConfProperties.getProperty("loginMailRu"));
     }
 
     @FindBy(xpath = "//button[contains(@data-test-id, 'next-button')]")
@@ -48,6 +71,7 @@ public class MailLoginPageAuth {
     public String getSecretCodeFromMessage() {
         return getCodeFromMailRuMassage.getText();
     }
+
 //    public String secretCode = getCodeFromMailRuMassage.getText();
 
 }
