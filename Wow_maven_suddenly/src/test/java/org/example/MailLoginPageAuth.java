@@ -30,10 +30,10 @@ public class MailLoginPageAuth {
     }
 
     //SupposedFrame
-    @FindBy(xpath = "//iframe[@class='iframe-0-2-16']")
-    public WebElement modPop;
-    public void swithToThisCqweqwsdfsddsgf(WebElement modPop) {
-        this.modPop = modPop;
+    @FindBy(xpath = "//iframe[@class='ag-popup__frame__layout__iframe']")
+    private WebElement modPop;
+    public void swithToThisCqweqwsdfsddsgf() {
+        driver.switchTo().frame(modPop);
     }
 
     @FindBy(xpath = "//input[contains(@name, 'username')]")
@@ -71,6 +71,7 @@ public class MailLoginPageAuth {
     public String getSecretCodeFromMessage() {
         return getCodeFromMailRuMassage.getText();
     }
+
 
 //    public String secretCode = getCodeFromMailRuMassage.getText();
 

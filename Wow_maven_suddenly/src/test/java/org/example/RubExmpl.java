@@ -21,7 +21,6 @@ public class RubExmpl {
     public static MailPageMain mailPageMain;
     public static YandexMainPage yandexMainPage;
     public static WebDriver driver;
-    public static ArrayList<String> tabs2;
     public static String mailTab;
     public static String yandexTab;
     public static String popMailTab;
@@ -70,16 +69,17 @@ public class RubExmpl {
         mailPageMain.goToMailAuthFieldsButton();
 
         Thread.sleep(10000);
-//        driver.switchTo().window(popMailTab);
-        driver.switchTo().activeElement();
+        mailLoginPageAuth.swithToThisCqweqwsdfsddsgf(); //название меиода, потому что долго искал. )
         mailLoginPageAuth.enterLoginFields();
         mailLoginPageAuth.clickToNavigatePasswordEnterFields();
         mailLoginPageAuth.enterMailPassword();
         mailLoginPageAuth.clickSignInMailRu();
+        driver.switchTo().defaultContent();
         mailLoginPageAuth.goToMessageWithSecretCode();
         mailLoginPageAuth.getSecretCodeFromMessage();
 
         driver.switchTo().window(yandexTab);
+
     }
 
     @AfterClass
