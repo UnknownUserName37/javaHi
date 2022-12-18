@@ -5,17 +5,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPageAuthYandexRu {
+public class LoginAuthPageYandexRu {
 
     public WebDriver driver;
 
     public static AuthPageInsideBoxMailRu authPageInsideBoxMailRu;
-    public static RubExmplGoToRegMailDomenOnYandexService pageObject;
+    public static RubExmplGoToRegMailDomainOnYandexService pageObject;
 
-    public LoginPageAuthYandexRu(WebDriver driver) {
+    public LoginAuthPageYandexRu(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
-        pageObject = new RubExmplGoToRegMailDomenOnYandexService();
+        pageObject = new RubExmplGoToRegMailDomainOnYandexService();
         authPageInsideBoxMailRu = new AuthPageInsideBoxMailRu(driver);
     }
 
@@ -41,7 +41,7 @@ public class LoginPageAuthYandexRu {
     private WebElement signInYandexButton;
     public void signInButton() {
         signInYandexButton.click();
-        driver.switchTo().window(RubExmplGoToRegMailDomenOnYandexService.mailTab);
+        driver.switchTo().window(RubExmplGoToRegMailDomainOnYandexService.mailTab);
     }
 
     @FindBy(xpath = "//span[contains(@class, 'Button2-Text')]")
@@ -50,7 +50,7 @@ public class LoginPageAuthYandexRu {
     @FindBy(xpath = "//div[contains(@class, 'CodeField')]")
     private WebElement enterSecretYandexField;
     public void inputSecretMailCodeInYandexFinishTest() {
-        driver.switchTo().window(RubExmplGoToRegMailDomenOnYandexService.yandexTab);
+        driver.switchTo().window(RubExmplGoToRegMailDomainOnYandexService.yandexTab);
         enterSecretYandexField.sendKeys(authPageInsideBoxMailRu.getSecretCodeFromMessage());
         submitYandexSecretButton.click();
     }

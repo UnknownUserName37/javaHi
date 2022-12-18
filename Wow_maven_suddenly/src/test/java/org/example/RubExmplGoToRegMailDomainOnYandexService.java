@@ -7,20 +7,19 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-public class RubExmplGoToRegMailDomenOnYandexService {
+public class RubExmplGoToRegMailDomainOnYandexService {
     /**
      * осуществление первоначальной настройки
      */
 
     public static AuthPageInsideBoxMailRu authPageInsideBoxMailRu;
-    public static LoginPageAuthYandexRu loginPageAuthYandexRu;
+    public static LoginAuthPageYandexRu loginAuthPageYandexRu;
     public static SignInPageMainMailRu signInPageMainMailRu;
     public static MainPageYandexRu mainPageYandexRu;
     public static PopUpAuthPageMailRu popUpAuthPageMailRu;
     public static WebDriver driver;
     public static String mailTab;
     public static String yandexTab;
-    public static String popMailTab;
 
     @BeforeClass @Deprecated
     public static void setUp() {
@@ -28,7 +27,7 @@ public class RubExmplGoToRegMailDomenOnYandexService {
 
         driver = new ChromeDriver();
         authPageInsideBoxMailRu = new AuthPageInsideBoxMailRu(driver);
-        loginPageAuthYandexRu = new LoginPageAuthYandexRu(driver);
+        loginAuthPageYandexRu = new LoginAuthPageYandexRu(driver);
         signInPageMainMailRu = new SignInPageMainMailRu(driver);
         mainPageYandexRu = new MainPageYandexRu(driver);
         popUpAuthPageMailRu = new PopUpAuthPageMailRu(driver);
@@ -51,7 +50,6 @@ public class RubExmplGoToRegMailDomenOnYandexService {
         while (iterator.hasNext()) {
             mailTab = iterator.next();
 }
-
     }
 
     @Test
@@ -59,8 +57,8 @@ public class RubExmplGoToRegMailDomenOnYandexService {
 
         mainPageYandexRu.buttonToGoEnterLoginField();
 
-        loginPageAuthYandexRu.inputLogin();
-        loginPageAuthYandexRu.signInButton();
+        loginAuthPageYandexRu.inputLogin();
+        loginAuthPageYandexRu.signInButton();
 
         signInPageMainMailRu.goToMailAuthFieldsButton();
 
@@ -74,7 +72,7 @@ public class RubExmplGoToRegMailDomenOnYandexService {
         authPageInsideBoxMailRu.getSecretCodeFromMessage();
 
         Thread.sleep(5000);
-        loginPageAuthYandexRu.inputSecretMailCodeInYandexFinishTest();
+        loginAuthPageYandexRu.inputSecretMailCodeInYandexFinishTest();
     }
 
     @AfterClass
@@ -83,4 +81,3 @@ public class RubExmplGoToRegMailDomenOnYandexService {
         System.out.println("Молодец.\n !");
     }
 }
-
