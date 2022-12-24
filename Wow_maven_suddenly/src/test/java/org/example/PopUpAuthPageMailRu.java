@@ -8,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 public class PopUpAuthPageMailRu {
 
     public WebDriver driver;
-
     public PopUpAuthPageMailRu(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;

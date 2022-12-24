@@ -9,25 +9,24 @@ import java.util.concurrent.TimeUnit;
 
 public class AuthPageInsideBoxMailRu {
 
-        public WebDriver driver;
-        public AuthPageInsideBoxMailRu(WebDriver driver) {
+    public WebDriver driver;
+    public AuthPageInsideBoxMailRu(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
     @FindBy(xpath = "//span[contains(@class, 'sp__normal')]")
     private WebElement neededMassageWithCodeFromMailBox;
-    public void goToMessageWithSecretCode() throws InterruptedException{
+
+    public void goToMessageWithSecretCode() {
         neededMassageWithCodeFromMailBox.click();
     }
 
-    @FindBy(xpath = "//iframe[contains(@class, 'download-frame')]")
-    private WebElement secretFrame;
-    @FindBy(xpath = "//td[contains(@style, 'padding')]/descendant::b[2]")
+    @FindBy(xpath = "//tr/td[contains(@style, 'padding')]/descendant::td/p[3]/b")
     private WebElement getCodeFromMailRuMassage;
-    public String getSecretCodeFromMessage() {
-        driver.switchTo().frame(secretFrame);
+    public String secretPrepare;
+    public void getSecretCodeFromMessage() {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        return getCodeFromMailRuMassage.getText();
+        secretPrepare = getCodeFromMailRuMassage.getText();
     }
 }

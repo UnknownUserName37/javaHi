@@ -2,7 +2,6 @@ package org.example;
 import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -23,6 +22,7 @@ public class RubExmplGoToRegMailDomainOnYandexService {
 
     @BeforeClass @Deprecated
     public static void setUp() {
+
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
 
         driver = new ChromeDriver();
@@ -35,49 +35,51 @@ public class RubExmplGoToRegMailDomainOnYandexService {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to(ConfProperties.getProperty("loginPage"));
-        yandexTab = driver.getWindowHandle();
+//        yandexTab = driver.getWindowHandle();
 
-        JavascriptExecutor jscript = (JavascriptExecutor) driver;
-        jscript.executeScript("window.open('https://mail.ru');", driver.getWindowHandles());
+//        JavascriptExecutor jscript = (JavascriptExecutor) driver;
+//        jscript.executeScript("window.open('https://mail.ru');", driver.getWindowHandles());
 
 //        driver.switchTo().newWindow(WindowType.TAB).navigate().to(ConfProperties.getProperty("mailRuPage"));
 
-        mailTab = null;
-
-        Set <String> handles = driver.getWindowHandles();
-        Iterator<String> iterator = handles.iterator();
-
-        while (iterator.hasNext()) {
-            mailTab = iterator.next();
-}
+//        mailTab = null;
+//
+//        Set <String> handles = driver.getWindowHandles();
+//        Iterator<String> iterator = handles.iterator();
+//
+//        while (iterator.hasNext()) {
+//            mailTab = iterator.next();
+//}
     }
 
     @Test
     public void authYaRu() throws InterruptedException {
 
         mainPageYandexRu.buttonToGoEnterLoginField();
+        Thread.sleep(5000);
+        mainPageYandexRu.clickForChooseAuthMeth();
 
         loginAuthPageYandexRu.inputLogin();
         loginAuthPageYandexRu.signInButton();
-
-        signInPageMainMailRu.goToMailAuthFieldsButton();
-
-        popUpAuthPageMailRu.swithToThisCqweqwsdfsddsgf(); //название метода, потому что долго искал. )
-        popUpAuthPageMailRu.inputLoginFields();
-        popUpAuthPageMailRu.clickToGoPasswordInputFields();
-        popUpAuthPageMailRu.inputMailPassword();
-        popUpAuthPageMailRu.clickSignInMailRu();
-
-        authPageInsideBoxMailRu.goToMessageWithSecretCode();
-        authPageInsideBoxMailRu.getSecretCodeFromMessage();
-
-        Thread.sleep(5000);
+//
+//        signInPageMainMailRu.goToMailAuthFieldsButton();
+//
+//        popUpAuthPageMailRu.swithToThisCqweqwsdfsddsgf(); //название метода, потому что долго искал. )
+//        popUpAuthPageMailRu.inputLoginFields();
+//        popUpAuthPageMailRu.clickToGoPasswordInputFields();
+//        popUpAuthPageMailRu.inputMailPassword();
+//        popUpAuthPageMailRu.clickSignInMailRu();
+//
+//        authPageInsideBoxMailRu.goToMessageWithSecretCode();
+//        authPageInsideBoxMailRu.getSecretCodeFromMessage();
+//
+//        driver.switchTo().window(yandexTab);
         loginAuthPageYandexRu.inputSecretMailCodeInYandexFinishTest();
     }
 
     @AfterClass
     public static void tearsDown() {
         driver.quit();
-        System.out.println("Молодец.\n !");
+        System.out.println("Молодец.\n ↓╣537Sн╜__•=}♣↓5'☻'♣4Zu⌂■!");
     }
 }

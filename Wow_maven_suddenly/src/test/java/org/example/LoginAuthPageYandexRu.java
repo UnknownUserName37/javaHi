@@ -7,38 +7,40 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginAuthPageYandexRu {
 
-    public WebDriver driver;
-
     public static AuthPageInsideBoxMailRu authPageInsideBoxMailRu;
-    public static RubExmplGoToRegMailDomainOnYandexService pageObject;
+
+    public WebDriver driver;
 
     public LoginAuthPageYandexRu(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
-        pageObject = new RubExmplGoToRegMailDomainOnYandexService();
         authPageInsideBoxMailRu = new AuthPageInsideBoxMailRu(driver);
     }
 
     @FindBy(xpath = "//a[@class = 'CurrentAccount']")
     private WebElement selectorYandexAddNewAccount;
+
     public void selectNewAccOnYaRu() {
         selectorYandexAddNewAccount.click();
     }
 
     @FindBy(xpath = "//span[@class = 'AddAccountButton-text']")
     private WebElement newYandexAccountButton;
+
     public void addNewYaAccount() {
         newYandexAccountButton.click();
     }
 
     @FindBy(xpath = "//input[@id = 'passp-field-login']")
     private WebElement loginYandexFieldEnter;
+
     public void inputLogin() {
         loginYandexFieldEnter.sendKeys(ConfProperties.getProperty("loginMailRu"));
     }
 
     @FindBy(xpath = "//div[contains(@class, 'sign-in-button')]")
     private WebElement signInYandexButton;
+
     public void signInButton() {
         signInYandexButton.click();
         driver.switchTo().window(RubExmplGoToRegMailDomainOnYandexService.mailTab);
@@ -46,12 +48,13 @@ public class LoginAuthPageYandexRu {
 
     @FindBy(xpath = "//span[contains(@class, 'Button2-Text')]")
     private WebElement submitYandexSecretButton;
-
-    @FindBy(xpath = "//div[contains(@class, 'CodeField')]")
+    @FindBy(xpath = "//div[@class='passp-content']/descendant::div[@class='CodeField']")
     private WebElement enterSecretYandexField;
-    public void inputSecretMailCodeInYandexFinishTest() {
-        driver.switchTo().window(RubExmplGoToRegMailDomainOnYandexService.yandexTab);
-        enterSecretYandexField.sendKeys(authPageInsideBoxMailRu.getSecretCodeFromMessage());
+
+    public void inputSecretMailCodeInYandexFinishTest() throws InterruptedException {
+        Thread.sleep(5000);
+        System.out.println("Here?");
+        enterSecretYandexField.sendKeys(/*authPageInsideBoxMailRu.secretPrepare*/"44205");
         submitYandexSecretButton.click();
     }
 }

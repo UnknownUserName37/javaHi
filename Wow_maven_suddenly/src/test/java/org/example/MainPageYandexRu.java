@@ -15,10 +15,17 @@ public class MainPageYandexRu {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//span[@class='zen-ui-button-text__text']")
+    @FindBy(xpath = "//button[@type='button']")
     private WebElement loginEnterButton;
-
     public void buttonToGoEnterLoginField() {
         loginEnterButton.click();
+    }
+
+    @FindBy(xpath = "//div[contains(@class, 'Popup2')]")
+    private WebElement swichToPopUpYandexAuth;
+    @FindBy(xpath = "//div[@id='tooltip-0-1']/descendant::span[2]")
+    private WebElement enterToAuthButtonYandexRu;
+    public void clickForChooseAuthMeth() {
+        enterToAuthButtonYandexRu.click();
     }
 }
