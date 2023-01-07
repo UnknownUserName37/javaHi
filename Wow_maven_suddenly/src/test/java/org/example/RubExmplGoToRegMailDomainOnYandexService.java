@@ -20,7 +20,7 @@ public class RubExmplGoToRegMailDomainOnYandexService {
     public static String mailTab;
     public static String yandexTab;
 
-    @BeforeClass @Deprecated
+    @BeforeClass
     public static void setUp() {
 
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
@@ -35,21 +35,21 @@ public class RubExmplGoToRegMailDomainOnYandexService {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to(ConfProperties.getProperty("loginPage"));
-//        yandexTab = driver.getWindowHandle();
+        yandexTab = driver.getWindowHandle();
 
-//        JavascriptExecutor jscript = (JavascriptExecutor) driver;
-//        jscript.executeScript("window.open('https://mail.ru');", driver.getWindowHandles());
+        JavascriptExecutor jscript = (JavascriptExecutor) driver;
+        jscript.executeScript("window.open('https://mail.ru');", driver.getWindowHandles());
 
-//        driver.switchTo().newWindow(WindowType.TAB).navigate().to(ConfProperties.getProperty("mailRuPage"));
+//        driver.switchTo().newWindow(WindowType.TAB).navigate().to(ConfProperties.getProperty("mailRuPage")); // II способ.
 
-//        mailTab = null;
-//
-//        Set <String> handles = driver.getWindowHandles();
-//        Iterator<String> iterator = handles.iterator();
-//
-//        while (iterator.hasNext()) {
-//            mailTab = iterator.next();
-//}
+        mailTab = null;
+
+        Set <String> handles = driver.getWindowHandles();
+        Iterator<String> iterator = handles.iterator();
+
+        while (iterator.hasNext()) {
+            mailTab = iterator.next();
+}
     }
 
     @Test
@@ -61,19 +61,18 @@ public class RubExmplGoToRegMailDomainOnYandexService {
 
         loginAuthPageYandexRu.inputLogin();
         loginAuthPageYandexRu.signInButton();
-//
-//        signInPageMainMailRu.goToMailAuthFieldsButton();
-//
-//        popUpAuthPageMailRu.swithToThisCqweqwsdfsddsgf(); //название метода, потому что долго искал. )
-//        popUpAuthPageMailRu.inputLoginFields();
-//        popUpAuthPageMailRu.clickToGoPasswordInputFields();
-//        popUpAuthPageMailRu.inputMailPassword();
-//        popUpAuthPageMailRu.clickSignInMailRu();
-//
-//        authPageInsideBoxMailRu.goToMessageWithSecretCode();
-//        authPageInsideBoxMailRu.getSecretCodeFromMessage();
-//
-//        driver.switchTo().window(yandexTab);
+
+        signInPageMainMailRu.goToMailAuthFieldsButton();
+
+        popUpAuthPageMailRu.swithToThisCqweqwsdfsddsgf(); //название метода, потому что долго искал. )
+        popUpAuthPageMailRu.inputLoginFields();
+        popUpAuthPageMailRu.clickToGoPasswordInputFields();
+        popUpAuthPageMailRu.inputMailPassword();
+        popUpAuthPageMailRu.clickSignInMailRu();
+
+        authPageInsideBoxMailRu.goToMessageWithSecretCode();
+        authPageInsideBoxMailRu.getSecretCodeFromMessage();
+
         loginAuthPageYandexRu.inputSecretMailCodeInYandexFinishTest();
     }
 

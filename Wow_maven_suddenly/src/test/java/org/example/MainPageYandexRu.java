@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class MainPageYandexRu {
+    public static int max;
+    private static int sergo;
     /**
      * конструктор класса, занимающийся инициализацией полей класса
      */
@@ -21,9 +23,7 @@ public class MainPageYandexRu {
         loginEnterButton.click();
     }
 
-    @FindBy(xpath = "//div[contains(@class, 'Popup2')]")
-    private WebElement swichToPopUpYandexAuth;
-    @FindBy(xpath = "//div[@id='tooltip-0-1']/descendant::span[2]")
+    @FindBy(xpath = "//div[contains(@class, 'login-content__yaButton')]/a")
     private WebElement enterToAuthButtonYandexRu;
     public void clickForChooseAuthMeth() {
         enterToAuthButtonYandexRu.click();

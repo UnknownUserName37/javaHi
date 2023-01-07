@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static org.example.RubExmplGoToRegMailDomainOnYandexService.yandexTab;
+
 public class LoginAuthPageYandexRu {
 
     public static AuthPageInsideBoxMailRu authPageInsideBoxMailRu;
@@ -48,13 +50,15 @@ public class LoginAuthPageYandexRu {
 
     @FindBy(xpath = "//span[contains(@class, 'Button2-Text')]")
     private WebElement submitYandexSecretButton;
-    @FindBy(xpath = "//div[@class='passp-content']/descendant::div[@class='CodeField']")
+    @FindBy(xpath = "//input[@dir = 'ltr']")
     private WebElement enterSecretYandexField;
 
     public void inputSecretMailCodeInYandexFinishTest() throws InterruptedException {
         Thread.sleep(5000);
         System.out.println("Here?");
-        enterSecretYandexField.sendKeys(/*authPageInsideBoxMailRu.secretPrepare*/"44205");
+        driver.switchTo().window(yandexTab);
+        enterSecretYandexField.sendKeys(authPageInsideBoxMailRu.getSecretCodeFromMessage());
         submitYandexSecretButton.click();
+
     }
 }
