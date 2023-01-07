@@ -1,6 +1,6 @@
 package test.pack;
 
-public class oneMoreTest {
+public class OneMoreTestCycleFor {
     public static void main(String[] args) {
 
         int width = 10;
