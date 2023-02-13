@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="ebanaya_data_blyat:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/ebanaya_data_blyat_jar</output-path>
-    <root id="archive" name="ebanaya_data_blyat.jar">
-      <element id="module-output" name="ebanaya_data_blyat" />
-    </root>
-  </artifact>
-</component>
